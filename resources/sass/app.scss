@@ -1,1 +1,12 @@
-//
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import "~bootstrap/scss/bootstrap";
+
+@mixin sizeWidth($width: 1) {
+    width: $width * 1px !important;
+}
+
+@for $i from 1 to 100 {
+    .width-#{$i} {
+        @include sizeWidth($i * 10);
+    }
+}

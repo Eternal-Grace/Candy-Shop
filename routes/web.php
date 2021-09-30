@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', 'ShowcaseController@index')->name('home');
+
+Route::group(['prefix' => 'product'], function () {
+    Route::get('{slug}', 'ShowcaseController@show')
+        ->where('slug', '^[a-z0-9\-]+')
+        ->name('product.details');
 });
+
+Route::get('donation', 'DonationController@index')->name('donation');
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
