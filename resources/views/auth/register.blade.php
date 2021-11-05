@@ -1,13 +1,5 @@
 @extends('layouts.app')
 
-@section('title')
-    @lang('pages.register')
-@endsection
-
-@section('sidebar')
-    @parent
-@endsection
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -19,13 +11,13 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="form-group row py-2">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                @error('username')
+                                @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -33,7 +25,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row py-2">
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -47,7 +39,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row py-2">
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -61,7 +53,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row py-2">
+                        <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">

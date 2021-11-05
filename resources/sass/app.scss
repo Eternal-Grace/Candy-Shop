@@ -1,12 +1,10 @@
-@import '~@fortawesome/fontawesome-free/css/all.min.css';
-@import "~bootstrap/scss/bootstrap";
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-@mixin sizeWidth($width: 1) {
-    width: $width * 1px !important;
-}
+// Variables
+@import 'variables';
 
-@for $i from 1 to 100 {
-    .width-#{$i} {
-        @include sizeWidth($i * 10);
-    }
-}
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import "~lightgallery.js";

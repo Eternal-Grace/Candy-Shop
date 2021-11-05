@@ -15,5 +15,7 @@ return [
 
     'previous' => '&laquo; Previous',
     'next' => 'Next &raquo;',
-
+    'search' => [
+        'empty' => 'Your search request found nothing on page :page. Please retry again or later.'
+    ]
 ];

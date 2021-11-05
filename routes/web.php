@@ -11,18 +11,30 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'ShowcaseController@index')->name('home');
-
-Route::group(['prefix' => 'product'], function () {
-    Route::get('{slug}', 'ShowcaseController@show')
-        ->where('slug', '^[a-z0-9\-]+')
-        ->name('product.details');
+Route::namespace('Store')
+    ->prefix('store')
+    ->name('store.')
+    ->group(function () {
+    Route::get('/', 'ProductsController@list')->name('index');
+    Route::get('{product}', 'ProductsController@show')->name('product');
 });
 
-Route::get('donation', 'DonationController@index')->name('donation');
+Route::namespace('User')->prefix('user')->name('user.')->group(function () {
+    Route::get('/', 'UserController@redirectUser')->name('profile');
+    Route::get('settings', 'UserController@showSettings')->name('settings');
+    Route::post('delete', 'UserController@destroy')->name('delete');
+});
 
-Auth::routes();
+Route::prefix('img')->name('image.')->group(function () {
+    Route::get('{image}/{size?}', 'ImageController@show')
+        ->where(['size' => '(full|)'])
+        ->name('show');
+    // Route::post('/', 'ImageController@show')->name('add');
+});
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::redirect('/', '/store', 301);
+
+Auth::routes(['verify' => true]);
