@@ -47,3 +47,5 @@ php artisan db:seed
 ```shell
 php artisan serve
 ```
+
+![Image Preview](https://raw.githubusercontent.com/Eternal-Grace/Candy-Shop/main/preview.gif)
