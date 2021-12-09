@@ -49,3 +49,5 @@ php artisan serve
 ```
 
 ![Image Preview](https://raw.githubusercontent.com/Eternal-Grace/Candy-Shop/main/preview.gif)
+
+![:name](https://count.loli.by/get/@Eternal-Grace?theme=rule34)
